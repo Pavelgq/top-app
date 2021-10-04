@@ -1,1 +1,2 @@
-export * from './Htag/HTag'; 
+export * from './Htag/Htag'; 
+export * from './Rating/Rating';
