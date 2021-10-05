@@ -4,9 +4,9 @@ import { RatingProps } from './Rating.props';
 import cn from 'classnames';
 import StarIcon from './star.svg';
 
-import styles from './Htag.module.css'
+import styles from './Rating.module.css'
 
-export const Htag = ({isEditable = false, rating, setRating, ...props} : RatingProps) : JSX.Element => {
+export const Rating = ({isEditable = false, rating, setRating, ...props} : RatingProps) : JSX.Element => {
     
     const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>));
 
@@ -17,15 +17,18 @@ export const Htag = ({isEditable = false, rating, setRating, ...props} : RatingP
     const constructRating = (currentRating: number) => {
         const newRating = ratingArray.map((r: JSX.Element, i: number) => {
             return (
-                <StarIcon 
-                    
+                <StarIcon className={cn(styles.star, {
+                    [styles.fill]: i < currentRating
+                })}
                 />
             )
         })
+        setRatingArray(newRating);
     }
-    return (
-        <div>
 
+    return (
+        <div {...props}>
+            {ratingArray.map((r, i) => (<span key={i}>{r}</span>))}
         </div>
     )
 }
