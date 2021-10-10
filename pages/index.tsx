@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 
 import { Htag, Rating, Button, Ptag, Tag } from '../components'
+import { Layout } from '../layout/Layout'
 
 
 export default function Home() {
@@ -10,7 +11,7 @@ export default function Home() {
   const [state, setstate] = useState<number>(1)
 
   return (
-    <>
+    <Layout>
       <Htag tag='h1'>Title</Htag>
       <Rating isEditable={true} rating={state} setRating={setstate}></Rating>
       <Button appearence='primary' arrow = 'right'>Push me</Button>
@@ -22,6 +23,6 @@ export default function Home() {
       <Tag size='s' href='#' >Tag 2</Tag>
       <Tag size='m'  color='green'>Tag 3</Tag>
       <Tag size='s' href='#' color='gray'>Tag 4</Tag>
-    </>
+    </Layout>
   )
 }
