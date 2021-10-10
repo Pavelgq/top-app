@@ -25,7 +25,7 @@ export const Rating = ({isEditable = false, rating, setRating, ...props} : Ratin
         if (!isEditable || !setRating) {
             return
         }
-        setRating(i);
+        setRating(i + 1);
     }
 
     const handleSpace = (i: number, e: KeyboardEvent<SVGElement>) => {
