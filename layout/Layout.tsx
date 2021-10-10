@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component, FunctionComponent } from 'react'
 
 import {LayoutProps} from './Layout.prors'
 import styles from './Layout.module.css'
@@ -19,4 +19,15 @@ export const Layout = ({children} : LayoutProps) : JSX.Element => {
             <Footer/>
         </>
     )
+}
+
+
+export const withLayout = <T extends Record<string, unknown>> (Component : FunctionComponent<T>) => {
+    return function componentWithLayout ({...props} : T) : JSX.Element {
+        return (
+            <Layout>
+                <Component {...props}/>
+            </Layout>
+        )
+    } 
 }
