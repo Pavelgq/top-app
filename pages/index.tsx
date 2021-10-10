@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import React, { useState } from 'react'
 
-import { Htag, Rating, Button, Ptag } from '../components'
+import { Htag, Rating, Button, Ptag, Tag } from '../components'
 
 
 export default function Home() {
@@ -15,7 +15,13 @@ export default function Home() {
       <Rating isEditable={true} rating={state} setRating={setstate}></Rating>
       <Button appearence='primary' arrow = 'right'>Push me</Button>
       <Button appearence='ghost' arrow='down'>Push me</Button>
+      <Ptag size='s'>Paragraph</Ptag>
       <Ptag size='m'>Paragraph</Ptag>
+      <Ptag size='l'>Paragraph</Ptag>
+      <Tag size='m' href='#' color='red'>Tag 1</Tag>
+      <Tag size='s' href='#' >Tag 2</Tag>
+      <Tag size='m'  color='green'>Tag 3</Tag>
+      <Tag size='s' href='#' color='gray'>Tag 4</Tag>
     </>
   )
 }
