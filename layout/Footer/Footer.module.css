@@ -1,0 +1,23 @@
+.footer {
+	display: grid;
+
+	background-color: var(--primary);
+	color: var(--white);
+	grid-template-columns: 1fr auto 1fr 1fr;
+
+	grid-template-areas: "copyright . agreement privacy";
+}
+
+.copyright {
+	grid-area: copyright;
+}
+
+.agreement {
+	grid-area: agreement;
+	justify-self: end;
+}
+
+.privacy {
+	grid-area: privacy;
+	justify-self: end;
+}

@@ -1,10 +1,16 @@
 import React from 'react'
 
+import cn from 'classnames'
+
 import {FooterProps} from './Footer.props'
 import styles from './Footer.module.css'
 
-export const Footer = ({...props} : FooterProps) : JSX.Element => {
+export const Footer = ({className, ...props} : FooterProps) : JSX.Element => {
     return (
-        <div {...props}>Footer</div>
+        <div className={cn(className, styles.footer)} {...props}>
+            <span className={styles.copyright}>OwlTop © 2020 - 2021 Все права защищены</span>
+            <a href='#' className={styles.agreement}>Пользовательское соглашение</a>
+            <a href='#' className={styles.privacy}>Политика конфиденциальности</a>
+        </div>
     )
 }
