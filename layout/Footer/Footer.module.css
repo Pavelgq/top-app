@@ -1,23 +1,27 @@
 .footer {
 	display: grid;
 
-	background-color: var(--primary);
+	padding: 25px 30px;
+
 	color: var(--white);
-	grid-template-columns: 1fr auto 1fr 1fr;
 
-	grid-template-areas: "copyright . agreement privacy";
+	background-color: var(--primary);
+
+	font-size: 16px;
+
+	font-weight: 500;
+	line-height: 22px;
+	grid-template-columns: 1fr auto auto;
+
+	gap: 10px 40px;
 }
 
-.copyright {
-	grid-area: copyright;
+.footer a:hover {
+	color: var(--gray-light);
 }
 
-.agreement {
-	grid-area: agreement;
-	justify-self: end;
-}
-
-.privacy {
-	grid-area: privacy;
-	justify-self: end;
+@media (max-width: 765px) {
+	.footer {
+		grid-template-columns: 1fr;
+	}
 }
