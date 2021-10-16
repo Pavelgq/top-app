@@ -26,9 +26,7 @@ function Home({menu, firstCategory} : HomeProps) : JSX.Element {
       <Tag size='s' href='#' >Tag 2</Tag>
       <Tag size='m'  color='green'>Tag 3</Tag>
       <Tag size='s' href='#' color='gray'>Tag 4</Tag>
-      <ul>
-        {menu.map(m => (<li key={m._id.secondCategory}>{m._id.secondCategory}</li>))}
-      </ul>
+      
     </>
   )
 }
