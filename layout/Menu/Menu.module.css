@@ -1,0 +1,12 @@
+.firstLevelItem {
+	display: grid;
+
+	grid-template-columns: 24px 1fr;
+
+	gap: 20px;
+
+	align-items: center;
+
+	font-size: 18px;
+	line-height: 25px;
+}
