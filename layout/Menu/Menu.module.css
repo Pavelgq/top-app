@@ -1,12 +1,84 @@
 .firstLevelItem {
 	display: grid;
 
+	align-items: center;
+
+	margin-top: 20px;
+
+	font-size: 18px;
+
+	font-weight: 500;
+	line-height: 25px;
+
 	grid-template-columns: 24px 1fr;
 
 	gap: 20px;
+}
 
-	align-items: center;
+.firstLevelItem svg {
+	fill: var(--black);
+}
 
-	font-size: 18px;
-	line-height: 25px;
+.firstLevelItemActive,
+.firstLevelItem:hover {
+	color: var(--primary);
+}
+
+.firstLevelItemActive svg,
+.firstLevelItem:hover svg {
+	fill: var(--primary);
+}
+
+.secondLevelBlock {
+	margin-top: 15px;
+	margin-left: 12px;
+	padding-left: 32px;
+
+	border-left: 1px solid #DFDFDF;
+}
+
+.secondLevelTitle {
+	margin-bottom: 10px;
+
+	cursor: pointer;
+
+	text-transform: uppercase;
+
+	color: var(--gray-dark);
+
+	font-size: 12px;
+	font-weight: 300;
+	line-height: 16px;
+}
+
+.secondLevelItem {
+	display: none;
+}
+
+.secondLevelItemActive {
+	display: block;
+}
+
+.secondLevelItemActive:last-child {
+	margin-bottom: 20px;
+}
+
+.thirdLevelItem {
+	display: block;
+
+	margin-bottom: 10px;
+
+	cursor: pointer;
+
+	color: var(--gray-dark);
+
+	font-size: 14px;
+
+	font-weight: 500;
+	line-height: 19px;
+}
+
+.thirdLevelItemActive,
+.thirdLevelItem:hover {
+	color: var(--primary);
 }
