@@ -7,24 +7,23 @@ import cn from 'classnames'
 import styles from './Menu.module.css'
 
 import { PageItem, TopLevelMenuItem } from "../../interfaces/menu.interface"
-import { TopLevelCategoty } from "../../interfaces/page.interface"
 
-import CoursesIcon from './icons/Courses.svg'
-import BooksIcon from './icons/Books.svg'
-import ServicesIcon from './icons/Services.svg'
-import ProductsIcon from './icons/Products.svg'
 import { useRouter } from "next/dist/client/router"
+import { firstLevelMenuItem } from "../../helpers/menuHelpers"
 
-const firstLevelMenuItem : TopLevelMenuItem[] = [
-    {route: 'courses', title: 'Курсы', icon: <CoursesIcon/>, id: TopLevelCategoty.Courses},
-    {route: 'books', title: 'Книги', icon: <BooksIcon/>, id: TopLevelCategoty.Books},
-    {route: 'services', title: 'Сервисы', icon: <ServicesIcon/>, id: TopLevelCategoty.Services},
-    {route: 'products', title: 'Продукты', icon: <ProductsIcon/>, id: TopLevelCategoty.Products}
-]
 
 export const Menu = () : JSX.Element => {
     const {menu, setMenu, firstCategory} = useContext(AppContext)
     const router = useRouter()
+
+    const openSecondLevel = (category: string) => {
+        setMenu && setMenu(menu.map(m => {
+            if (m._id.secondCategory === category) {
+                m.isOpened = !m.isOpened
+            }
+            return m;
+        }))
+    }
 
     const buildFirstLevelMenu = () : JSX.Element => {
         return (
@@ -34,7 +33,7 @@ export const Menu = () : JSX.Element => {
                         <Link href={`/${menuItem.route}`}>
                             <a>
                                 <div className={cn(styles.firstLevelItem, {
-                                    [styles.firstLevelItemActive] : menuItem.id == firstCategory
+                                    [styles.firstLevelItemActive] : menuItem.id === firstCategory
                                 })}>
                                     {menuItem.icon}
                                     <span>{menuItem.title}</span>
@@ -59,7 +58,7 @@ export const Menu = () : JSX.Element => {
                     }
                     return (
                     <div key={subMenuItem._id.secondCategory} >
-                        <div className={styles.secondLevelTitle}>
+                        <div className={styles.secondLevelTitle} onClick={() => openSecondLevel(subMenuItem._id.secondCategory)}>
                             {subMenuItem._id.secondCategory}
                         </div>
                         <div className={cn(styles.secondLevelItem, {
