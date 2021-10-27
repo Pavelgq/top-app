@@ -10,10 +10,9 @@ import { withLayout } from "../../layout/Layout"
 
 
 function Course ({menu, page, products} : CourseProps) : JSX.Element {
-    console.log('courses', products.length)
     return (
         <>
-            {products.length}
+            {products && products.length}
         </>
     )
 }
@@ -28,7 +27,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
                 paths = paths.concat(menu.flatMap(m => m.pages.map(p => `/${item.route}/${p.alias}`)))
             }
         }
-        console.log('...', paths)
     return {
         paths,
         fallback: true
@@ -47,9 +45,8 @@ export const getStaticProps: GetStaticProps<CourseProps> =  async ({ params } : 
                 notFound: true
             }
     }
-    const firstCategory = firstCategoryItem.id;
     try {
-        const {data: menu} = await axios.post<unknown, AxiosResponse<MenuItem[]>>(process.env.NEXT_PUBLIC_DOMAIN + 'api/top-page/find', {firstCategory});
+        const {data: menu} = await axios.post<unknown, AxiosResponse<MenuItem[]>>(process.env.NEXT_PUBLIC_DOMAIN + 'api/top-page/find', {firstCategory: firstCategoryItem.id});
         if (menu.length === 0) {
             return {
                 notFound: true
@@ -63,7 +60,7 @@ export const getStaticProps: GetStaticProps<CourseProps> =  async ({ params } : 
         return {
                 props: {
                         menu,
-                        firstCategory,
+                        firstCategory: firstCategoryItem.id,
                         page,
                         products
                 }

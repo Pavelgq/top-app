@@ -13,8 +13,16 @@ import { firstLevelMenuItem } from "../../helpers/menuHelpers"
 
 
 export const Menu = () : JSX.Element => {
-    const {menu, setMenu, firstCategory} = useContext(AppContext)
+    const {menu, setMenu, firstCategory, setCategory} = useContext(AppContext)
     const router = useRouter()
+
+    const openFirstLevel = (route: string) => {
+        let newCategory;
+         if (firstLevelMenuItem[firstCategory].route !==  route) {
+                newCategory = firstLevelMenuItem.find(m => m.route === route)
+            }
+        setCategory && newCategory && setCategory(newCategory.id)
+    }
 
     const openSecondLevel = (category: string) => {
         setMenu && setMenu(menu.map(m => {
@@ -25,11 +33,12 @@ export const Menu = () : JSX.Element => {
         }))
     }
 
+
     const buildFirstLevelMenu = () : JSX.Element => {
         return (
             <>
                 {firstLevelMenuItem.map(menuItem => (
-                    <div key={menuItem.route}>
+                    <div key={menuItem.route} onClick={() => openFirstLevel(menuItem.route)}>
                         <Link href={`/${menuItem.route}`}>
                             <a>
                                 <div className={cn(styles.firstLevelItem, {
