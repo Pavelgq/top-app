@@ -1,7 +1,5 @@
 import axios, { AxiosResponse } from 'axios'
 import { GetStaticProps } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
 import React, { useState } from 'react'
 
 import { Htag, Rating, Button, Ptag, Tag } from '../components'

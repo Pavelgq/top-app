@@ -32,7 +32,7 @@ export const getStaticProps: GetStaticProps<TypeProps> =  async ({ params } : Ge
             }
     }
     const firstCategoryItem = firstLevelMenuItem.find(el => {
-        return el.route == params.type
+        return el.route === params.type
     });
     if (!firstCategoryItem) {
         return {
@@ -41,7 +41,6 @@ export const getStaticProps: GetStaticProps<TypeProps> =  async ({ params } : Ge
     }
     try {
         const {data: menu} = await axios.post<unknown, AxiosResponse<MenuItem[]>>(process.env.NEXT_PUBLIC_DOMAIN + 'api/top-page/find', {firstCategory: firstCategoryItem.id});
-        
         return {
                 props: {
                         menu,
