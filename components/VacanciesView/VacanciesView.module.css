@@ -34,6 +34,7 @@
 .salary {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
+	gap: 10px;
 
 	padding: 20px;
 }
@@ -79,7 +80,7 @@
 
 .stars {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: repeat(3, 20px);
 	justify-items: center;
 	gap: 10px;
 
@@ -88,4 +89,25 @@
 
 .starFilled {
 	fill: var(--bad);
+}
+
+@media screen and (max-width: 1200px) {
+	.info {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.salary {
+		grid-template-columns: 1fr;
+	}
+
+	.salary > div {
+		border-right: none;
+		border-bottom: 1px solid var(--gray-light);
+	}
+
+	.salary > div:last-child {
+		border-bottom: none;
+	}
 }
