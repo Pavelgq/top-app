@@ -3,7 +3,8 @@ import { VacanciesViewProps } from './VacanciesView.props'
 import styles from './VacanciesView.module.css'
 import StarIcon from './starIcon.svg'
 import { Htag, Card, Tag } from '..'
-
+import { priceToRub } from '../../helpers/otherHelpers'
+ 
 export const VacanciesView = ({category, info}: VacanciesViewProps): JSX.Element => {
 
     return (
@@ -21,7 +22,7 @@ export const VacanciesView = ({category, info}: VacanciesViewProps): JSX.Element
                 <Card color="white" className={styles.salary}>
                     <div>
                         <span className={styles.subTitle}>Начинающий</span>
-                        <span className={styles.salaryValue}>{info.juniorSalary}</span>
+                        <span className={styles.salaryValue}>{priceToRub(info.juniorSalary)}</span>
                         <div className={styles.stars}>
                             <StarIcon className={styles.starFilled}/>
                             <StarIcon />
@@ -30,7 +31,7 @@ export const VacanciesView = ({category, info}: VacanciesViewProps): JSX.Element
                     </div>
                     <div>
                         <span className={styles.subTitle}>Средний</span>
-                        <span className={styles.salaryValue}>{info.middleSalary}</span>
+                        <span className={styles.salaryValue}>{priceToRub(info.middleSalary)}</span>
                         <div className={styles.stars}>
                             <StarIcon className={styles.starFilled}/>
                             <StarIcon className={styles.starFilled}/>
@@ -39,7 +40,7 @@ export const VacanciesView = ({category, info}: VacanciesViewProps): JSX.Element
                     </div>
                     <div>
                         <span className={styles.subTitle}>Профессионал</span>
-                        <span className={styles.salaryValue}>{info.seniorSalary}</span>
+                        <span className={styles.salaryValue}>{priceToRub(info.seniorSalary)}</span>
                         <div className={styles.stars}>
                             <StarIcon className={styles.starFilled}/>
                             <StarIcon className={styles.starFilled}/>
