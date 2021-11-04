@@ -1,7 +1,7 @@
 import React from 'react'
 import { TopPageComponentProps } from './TopPageComponent.props'
 import styles from './TopPageComponent.module.css'
-import { Card, Htag, Tag, VacanciesView } from '../../components'
+import { Advantages, Card, Htag, Tag, VacanciesView } from '../../components'
 import { TopLevelCategoty } from '../../interfaces/page.interface'
 
 export const TopPageComponent  = ({page, products, firstCategory} : TopPageComponentProps) : JSX.Element => {
@@ -18,9 +18,17 @@ export const TopPageComponent  = ({page, products, firstCategory} : TopPageCompo
             <div className={styles.products}>
                 {products && products.map(p => (<div key={p._id}>{p.title}</div>))}
             </div>
-            {firstCategory === TopLevelCategoty.Courses && 
+            {firstCategory === TopLevelCategoty.Courses && page.hh &&
                 <VacanciesView info={page.hh} category={page.category} />
             }
+
+            {page.advantages && page.advantages.length > 0 && 
+                <>
+                    <Htag tag='h2'>Преимущества</Htag>
+                    <Advantages info={page.advantages} />
+                </>
+            }
+            
 
              
         </div>
