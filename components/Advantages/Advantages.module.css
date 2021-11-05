@@ -11,6 +11,23 @@
 	grid-template-columns: 50px 1fr;
 
 	gap: 10px 40px;
+
+	margin-top: 30px;
+}
+
+.title {
+	align-self: center;
+
+	color: var(--gray-ligth);
+
+	font-size: 20px;
+
+	font-weight: bold;
+	line-height: 27px;
+}
+
+.desctiption {
+	margin: 0;
 }
 
 .icon {
@@ -26,5 +43,5 @@
 }
 
 .vline {
-	border-left: 1px solid var(--gray-ligth);
+	border-left: 1px solid #D2D2D2;
 }

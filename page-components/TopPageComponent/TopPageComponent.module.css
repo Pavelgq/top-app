@@ -11,3 +11,13 @@
 	justify-items: left;
 	gap: 20px;
 }
+
+.chapter {
+	margin-top: 45px;
+}
+
+.tags {
+	margin-top: 20px;
+
+	margin-bottom: 50px;
+}

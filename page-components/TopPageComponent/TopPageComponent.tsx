@@ -23,13 +23,23 @@ export const TopPageComponent  = ({page, products, firstCategory} : TopPageCompo
             }
 
             {page.advantages && page.advantages.length > 0 && 
-                <>
+                <div className={styles.chapter}>
                     <Htag tag='h2'>Преимущества</Htag>
                     <Advantages info={page.advantages} />
-                </>
+                </div>
             }
             
-
+            <div className={styles.chapter}>
+                <Htag tag="h2">Получаемые навыки</Htag>
+                <div className={styles.tags}>
+                    {page.tags && page.tags.map(t => {
+                        return (
+                            <Tag size="s" color='primary'>{t}</Tag>
+                        )
+                    })}
+                </div>
+                
+            </div>
              
         </div>
 
