@@ -6,11 +6,15 @@ import Logo from '../logo.svg'
 import styles from './Sidebar.module.css'
 import { Menu } from '../Menu/Menu'
 import cn from 'classnames'
+import Link from 'next/link'
 
 export const Sidebar = ({className, ...props} : SidebarProps) : JSX.Element => {
     return (
         <div {...props} className={cn(className, styles.sidebar)}>
-            <Logo className={styles.logo}/>
+            
+            <Link href='/'>
+                <Logo className={styles.logo}/>
+            </Link>
             Поиск
             <Menu />
         </div>

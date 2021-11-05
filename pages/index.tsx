@@ -2,7 +2,8 @@ import axios, { AxiosResponse } from 'axios'
 import { GetStaticProps } from 'next'
 import React, { useState } from 'react'
 
-import { Htag, Rating, Button, Ptag, Tag } from '../components'
+import { Htag, Rating, Button, Ptag, Tag, Input } from '../components'
+import { TextArea } from '../components/TextArea/Textarea'
 import { MenuItem } from '../interfaces/menu.interface'
 import { withLayout } from '../layout/Layout'
 
@@ -24,7 +25,8 @@ function Home({menu, firstCategory} : HomeProps) : JSX.Element {
       <Tag size='s' href='#' >Tag 2</Tag>
       <Tag size='m'  color='green'>Tag 3</Tag>
       <Tag size='s' href='#' color='gray'>Tag 4</Tag>
-      
+      <Input placeholder="Name" />
+      <TextArea placeholder="Description" />
     </>
   )
 }
