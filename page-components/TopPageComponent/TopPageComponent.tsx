@@ -1,8 +1,10 @@
 import React from 'react'
 import { TopPageComponentProps } from './TopPageComponent.props'
 import styles from './TopPageComponent.module.css'
-import { Advantages, Card, Htag, Tag, VacanciesView } from '../../components'
+import { Advantages, Card, Htag, Ptag, Tag, VacanciesView } from '../../components'
 import { TopLevelCategoty } from '../../interfaces/page.interface'
+import { Sort } from '../../components/Sort/Sort'
+import { SortEnam } from '../../components/Sort/Sort.props'
 
 export const TopPageComponent  = ({page, products, firstCategory} : TopPageComponentProps) : JSX.Element => {
 
@@ -13,7 +15,7 @@ export const TopPageComponent  = ({page, products, firstCategory} : TopPageCompo
                 {products ? 
                 <Tag size='m'>{products.length}</Tag> : 
                 <Tag size='m'>0</Tag>}
-                <span>Сортировка</span>
+                <Sort sort={SortEnam.Rating} setSort={() => {}} />
             </div>
             <div className={styles.products}>
                 {products && products.map(p => (<div key={p._id}>{p.title}</div>))}
@@ -27,6 +29,10 @@ export const TopPageComponent  = ({page, products, firstCategory} : TopPageCompo
                     <Htag tag='h2'>Преимущества</Htag>
                     <Advantages info={page.advantages} />
                 </div>
+            }
+
+            {page.seoText && 
+                <div className={styles.seo} dangerouslySetInnerHTML={{__html: page.seoText}} />
             }
             
             <div className={styles.chapter}>

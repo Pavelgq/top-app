@@ -1,0 +1,38 @@
+.sort {
+	display: grid;
+
+	grid-template-columns: 1fr 1fr;
+
+	gap: 40px;
+}
+
+.icon {
+	display: none;
+}
+
+.item {
+	padding-left: 8px;
+
+	cursor: pointer;
+
+	color: #000;
+
+	font-weight: normal;
+}
+
+.active {
+	display: flex;
+	align-items: baseline;
+}
+
+.active svg {
+	display: block;
+}
+
+.active .item {
+	cursor: auto;
+
+	color: var(--primary);
+
+	font-weight: bold;
+}
