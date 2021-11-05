@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useEffect, useReducer } from 'react'
 import { TopPageComponentProps } from './TopPageComponent.props'
 import styles from './TopPageComponent.module.css'
-import { Advantages, Card, Htag, Ptag, Tag, VacanciesView } from '../../components'
+import { Advantages, Card, Htag, Ptag, Sort, Tag, VacanciesView } from '../../components'
 import { TopLevelCategoty } from '../../interfaces/page.interface'
-import { Sort } from '../../components/Sort/Sort'
+import { SortReduser } from './sort.reducer'
 import { SortEnam } from '../../components/Sort/Sort.props'
 
 export const TopPageComponent  = ({page, products, firstCategory} : TopPageComponentProps) : JSX.Element => {
+
+    const [{products: sortedProducts, sort}, dispatchSort] = useReducer(SortReduser, {products, sort: SortEnam.Rating});
+
+    const setSort = (targetSort: SortEnam) => {
+        dispatchSort({type: targetSort});
+    }
+
+    useEffect(() => {
+        dispatchSort({type: 'Reset', initialState: products})
+    }, [products])
 
     return (
         <div className={styles.wrapper}>
@@ -15,10 +25,10 @@ export const TopPageComponent  = ({page, products, firstCategory} : TopPageCompo
                 {products ? 
                 <Tag size='m'>{products.length}</Tag> : 
                 <Tag size='m'>0</Tag>}
-                <Sort sort={SortEnam.Rating} setSort={() => {}} />
+                <Sort sort={sort} setSort={setSort} />
             </div>
             <div className={styles.products}>
-                {products && products.map(p => (<div key={p._id}>{p.title}</div>))}
+                {sortedProducts && sortedProducts.map(p => (<div key={p._id}>{p.title}{p.price} {p.initialRating}</div>))}
             </div>
             {firstCategory === TopLevelCategoty.Courses && page.hh &&
                 <VacanciesView info={page.hh} category={page.category} />
@@ -52,3 +62,4 @@ export const TopPageComponent  = ({page, products, firstCategory} : TopPageCompo
         
     )
 }
+

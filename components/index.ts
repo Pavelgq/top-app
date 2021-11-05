@@ -6,3 +6,4 @@ export * from './Tag/Tag';
 export * from './Card/Card';
 export * from './VacanciesView/VacanciesView';
 export * from './Advantages/Advantages';
+export * from './Sort/Sort';
