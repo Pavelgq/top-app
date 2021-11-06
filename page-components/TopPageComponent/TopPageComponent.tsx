@@ -5,6 +5,7 @@ import { Advantages, Card, Htag, Ptag, Sort, Tag, VacanciesView } from '../../co
 import { TopLevelCategoty } from '../../interfaces/page.interface'
 import { SortReduser } from './sort.reducer'
 import { SortEnam } from '../../components/Sort/Sort.props'
+import { Product } from '../../components/Product/Product'
 
 export const TopPageComponent  = ({page, products, firstCategory} : TopPageComponentProps) : JSX.Element => {
 
@@ -28,7 +29,7 @@ export const TopPageComponent  = ({page, products, firstCategory} : TopPageCompo
                 <Sort sort={sort} setSort={setSort} />
             </div>
             <div className={styles.products}>
-                {sortedProducts && sortedProducts.map(p => (<div key={p._id}>{p.title}{p.price} {p.initialRating}</div>))}
+                {sortedProducts && sortedProducts.map(p => (<Product key={p._id} product={p} />))}
             </div>
             {firstCategory === TopLevelCategoty.Courses && page.hh &&
                 <VacanciesView info={page.hh} category={page.category} />
@@ -50,7 +51,7 @@ export const TopPageComponent  = ({page, products, firstCategory} : TopPageCompo
                 <div className={styles.tags}>
                     {page.tags && page.tags.map(t => {
                         return (
-                            <Tag size="s" color='primary'>{t}</Tag>
+                            <Tag key={t} size="s" color='primary'>{t}</Tag>
                         )
                     })}
                 </div>

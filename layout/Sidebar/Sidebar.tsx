@@ -14,7 +14,9 @@ export const Sidebar = ({className, ...props} : SidebarProps) : JSX.Element => {
         <div {...props} className={cn(className, styles.sidebar)}>
             
             <Link href='/'>
-                <Logo className={styles.logo}/>
+                <a>
+                    <Logo className={styles.logo}/>
+                </a>
             </Link>
             <Search />
             <Menu />

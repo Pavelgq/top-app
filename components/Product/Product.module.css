@@ -1,0 +1,67 @@
+.product {
+	display: grid;
+
+	padding: 30px;
+
+	grid-template-columns:
+		[start]
+		70px
+		[logo]
+		30px
+		[titlestart]
+		calc(50% - 100px)
+		[middle]
+		auto
+		[pricestart]
+		auto
+		[priceend]
+		40px
+		[creditstart]
+		auto
+		[creditend]
+		40px
+		[ratingstart]
+		auto
+		[end];
+
+  margin-top: 15px;
+}
+
+.logo {
+  grid-column: start/logo;
+  grid-row: 1/ span 2;
+}
+
+.title,
+.tags {
+  grid-column: titlestart / middle;
+}
+
+.price,
+.priceText {
+  grid-column: pricestart / priceend;
+}
+
+.credit,
+.creditText {
+  grid-column: creditstart / creditend;
+}
+
+.rating,
+.ratingText {
+  grid-column: ratingstart / end;
+}
+
+.line,
+.description,
+.control {
+  grid-column: start / end;
+}
+
+.character {
+  grid-column: start / middle;
+}
+
+.advBlock {
+  grid-column: middle / end;
+}
