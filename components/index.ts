@@ -8,3 +8,4 @@ export * from './VacanciesView/VacanciesView';
 export * from './Advantages/Advantages';
 export * from './Sort/Sort';
 export * from './Input/Input';
+export * from './Search/Search';
