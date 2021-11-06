@@ -1,6 +1,8 @@
 .product {
 	display: grid;
 
+	margin-top: 15px;
+
 	padding: 30px;
 
 	grid-template-columns:
@@ -11,7 +13,7 @@
 		[titlestart]
 		calc(50% - 100px)
 		[middle]
-		auto
+		1fr
 		[pricestart]
 		auto
 		[priceend]
@@ -23,45 +25,149 @@
 		[ratingstart]
 		auto
 		[end];
-
-  margin-top: 15px;
 }
 
 .logo {
-  grid-column: start/logo;
-  grid-row: 1/ span 2;
+	grid-column: start/logo;
+	grid-row: 1/ span 2;
 }
 
 .title,
 .tags {
-  grid-column: titlestart / middle;
+	grid-column: titlestart / middle;
 }
 
 .price,
 .priceText {
-  grid-column: pricestart / priceend;
+	grid-column: pricestart / priceend;
 }
 
 .credit,
 .creditText {
-  grid-column: creditstart / creditend;
+	grid-column: creditstart / creditend;
 }
 
 .rating,
 .ratingText {
-  grid-column: ratingstart / end;
+	grid-column: ratingstart / end;
 }
 
 .line,
 .description,
 .control {
-  grid-column: start / end;
+	grid-column: start / end;
 }
 
 .character {
-  grid-column: start / middle;
+	grid-column: start / middle;
 }
 
 .advBlock {
-  grid-column: middle / end;
+	grid-column: middle / end;
+}
+
+.logo img {
+	width: 70px;
+	height: auto;
+	mix-blend-mode: multiply;
+
+	border-radius: 5px;
+}
+
+.title {
+	align-self: flex-end;
+}
+
+.price,
+.credit {
+	align-self: flex-end;
+
+	font-size: 20px;
+	line-height: 27px;
+	justify-self: left;
+}
+
+.rating {
+	align-self: flex-end;
+}
+
+.priceText,
+.creditText,
+.ratingText {
+	align-self: flex-start;
+
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 19px;
+}
+
+.creditPrefix {
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 19px;
+}
+
+.priceWrapper {
+	display: grid;
+	grid-template-columns: auto auto;
+
+	align-items: center;
+}
+
+.saleTag {
+	margin-left: 5px;
+}
+
+.categoryTag {
+	margin-top: 5px;
+}
+
+.description {
+	margin-bottom: 20px;
+}
+
+.advBlock .advantages {
+	padding-left: 15px;
+
+	border-left: 3px solid var(--good);
+}
+
+.advBlock .disadvantages {
+	margin-top: 20px;
+	padding-left: 15px;
+
+	border-left: 3px solid var(--bad);
+}
+
+.advBlock h4 {
+	margin-bottom: 5px;
+}
+
+.characterItem {
+	display: grid;
+
+	grid-template-columns: auto 1fr auto;
+  gap: 12px;
+	align-items: flex-end;
+	padding-right: 60px;
+
+  margin-bottom: 11px;
+}
+
+.characterItem:last-child {
+  margin-bottom: 0;
+}
+
+.characterName {
+	font-weight: bold;
+}
+
+.characterDots {
+	margin-bottom: 4px;
+
+	border-bottom: 1px dashed #C4C4C4;
+}
+
+.reviewButton {
+	margin-left: 20px;
 }
