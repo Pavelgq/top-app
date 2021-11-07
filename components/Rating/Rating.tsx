@@ -60,7 +60,7 @@ export const Rating = ({isEditable = false, rating, setRating, ...props} : Ratin
     }
 
     return (
-        <div {...props}>
+        <div className={styles.wrapper} {...props}>
             {ratingArray.map((r, i) => (<span key={i}>{r}</span>))}
         </div>
     )

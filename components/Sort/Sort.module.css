@@ -4,6 +4,8 @@
 	grid-template-columns: auto auto;
 
 	gap: 40px;
+
+	width: 250px;
 }
 
 .icon {

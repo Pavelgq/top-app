@@ -52,7 +52,8 @@
 	grid-column: ratingstart / end;
 }
 
-.line,
+.line1,
+.line2,
 .description,
 .control {
 	grid-column: start / end;
@@ -85,10 +86,13 @@
 	font-size: 20px;
 	line-height: 27px;
 	justify-self: left;
+
+  white-space: nowrap;
 }
 
 .rating {
 	align-self: flex-end;
+  white-space: nowrap;
 }
 
 .priceText,
@@ -145,17 +149,17 @@
 
 .characterItem {
 	display: grid;
-
-	grid-template-columns: auto 1fr auto;
-  gap: 12px;
 	align-items: flex-end;
+
+	margin-bottom: 11px;
 	padding-right: 60px;
 
-  margin-bottom: 11px;
+	grid-template-columns: auto 1fr auto;
+	gap: 12px;
 }
 
 .characterItem:last-child {
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 .characterName {
@@ -171,3 +175,150 @@
 .reviewButton {
 	margin-left: 20px;
 }
+
+@media screen and (max-width: 1320px) {
+	.product {
+		grid-template-columns: 70px 30px auto 40px auto 40px 1fr;
+
+		grid-template-areas:
+			"logo . title title title title title"
+			"logo . tags tags tags tags tags"
+			"price price price . credit . rating"
+			"priceText priceText priceText . creditText . ratingText"
+			"line1 line1 line1 line1 line1 line1 line1"
+			"description description description description description description description"
+			"character character character character character character character "
+			"advBlock advBlock advBlock advBlock advBlock advBlock advBlock "
+			"line2 line2 line2 line2 line2 line2 line2 "
+			"control control control control control control control ";
+	}
+
+	.logo {
+		grid-area: logo;
+
+		margin-bottom: 20px;
+	}
+
+	.title {
+		grid-area: title;
+	}
+
+	.description {
+		grid-area: description;
+	}
+
+	.tags {
+		grid-area: tags;
+	}
+
+	.price {
+		grid-area: price;
+	}
+
+	.credit {
+		grid-area: credit;
+	}
+
+	.rating {
+		grid-area: rating;
+	}
+
+	.priceText {
+		grid-area: priceText;
+	}
+
+	.creditText {
+		grid-area: creditText;
+	}
+
+	.priceText {
+		grid-area: priceText;
+	}
+
+	.ratingText {
+		grid-area: ratingText;
+	}
+
+	.line1 {
+		grid-area: line1;
+	}
+
+	.line2 {
+		grid-area: line2;
+	}
+
+	.character {
+		grid-area: character;
+
+		margin-bottom: 20px;
+	}
+
+	.advBlock {
+		grid-area: advBlock;
+	}
+
+	.control {
+		grid-area: control;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.product {
+		grid-template-columns: 70px 30px 1fr;
+
+		grid-template-areas:
+			"logo . title"
+			"logo . tags"
+			"priceText priceText price"
+			"creditText creditText credit"
+			"ratingText ratingText rating"
+			"line1 line1 line1"
+			"description description description"
+			"character character character"
+			"advBlock advBlock advBlock"
+			"line2 line2 line2"
+			"control control control";
+	}
+
+  .tags {
+    margin-bottom: 20px;
+  }
+  .price,
+  .credit, .rating {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .product {
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+      "logo"
+      "title"
+      "tags"
+      "price"
+      "priceText"
+      "credit"
+      "creditText"
+      "rating"
+      "ratingText"
+      "line1"
+      "description"
+      "character"
+      "advBlock"
+      "line2"
+      "control";
+  }
+
+  .price,
+  .credit,
+  .rating {
+    margin-bottom: 0;
+  }
+
+  .priceText, .creditText, .ratingText {
+    margin-bottom: 10px;
+  }
+}
+

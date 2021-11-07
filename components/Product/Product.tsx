@@ -36,7 +36,7 @@ export const Product = ({product, ...props}: ProductProps): JSX.Element => {
           {product.reviewCount + ' '} 
           {declinWord(product.reviewCount, ['отзыва','отзыв','отзывов'])}
           </div>
-        <HrTag className={styles.line} />
+        <HrTag className={styles.line1} />
         <div className={styles.description}>{product.description}</div>
         <div className={styles.character}>
           {product.characteristics.map(c => {
@@ -64,7 +64,7 @@ export const Product = ({product, ...props}: ProductProps): JSX.Element => {
           }
           
         </div>
-        <HrTag className={styles.line} />
+        <HrTag className={styles.line2} />
 
         <div className={styles.control}>
           <Button appearence='primary'>Узнать подробнее</Button>
