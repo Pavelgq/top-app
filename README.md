@@ -1,3 +1,25 @@
+# Учебный проект TopApp
+
+Next Js, Typescript, classnames
+
+![Внешний вид приложения Top-app](/assets/images/screen.png)
+
+### Для запуска:
+
+1. Клонируйие репозиторий
+
+`git clone https://github.com/Pavelgq/top-app.git`
+
+2. Установите зависимости
+
+`npm i`
+
+3. Выполните команду
+
+`npm run dev`
+
+---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

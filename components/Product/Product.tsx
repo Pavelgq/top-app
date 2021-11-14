@@ -3,12 +3,14 @@ import cn from 'classnames'
 import {ProductProps} from './Product.props'
 import styles from './Product.module.css'
 import { Button, Card, HrTag, Htag, Rating, Tag } from '..'
-import React from 'react'
+import React, { useState } from 'react'
 import { declinWord, priceToRub } from '../../helpers/otherHelpers'
 
 export const Product = ({product, ...props}: ProductProps): JSX.Element => {
-
+  const [isReviewCard, setIsReviewCard] = useState<boolean>(false);
   return (
+
+    <>
       <Card className={styles.product} {...props}>
         <div className={styles.logo}>
           <Image 
@@ -68,9 +70,20 @@ export const Product = ({product, ...props}: ProductProps): JSX.Element => {
 
         <div className={styles.control}>
           <Button appearence='primary'>Узнать подробнее</Button>
-          <Button appearence='ghost' arrow="right" className={styles.reviewButton}>Читать отзывы</Button>
+          <Button 
+            appearence='ghost' 
+            arrow={isReviewCard ? 'down' : 'right'} 
+            className={styles.reviewButton}
+            onClick={() => setIsReviewCard(!isReviewCard)}
+          >Читать отзывы</Button>
         </div>
         
       </Card>
+      <Card color="blue" className={cn(styles.reviews, {
+          [styles.openReview]: isReviewCard
+        })}>
+          sddd
+      </Card>
+    </>
   )
 }
